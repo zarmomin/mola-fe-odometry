@@ -48,15 +48,15 @@ void WheelOdometry::initialize(const std::string& cfg_block)
     auto cfg = c["params"];
     MRPT_LOG_DEBUG_STREAM("Loading these params:\n" << cfg);
 
-    yamlLoadMemberReq<double>(cfg, "min_dist_xyz_between_keyframes", params_.min_dist_xyz_between_keyframes);
-    yamlLoadMemberOptDeg<double>(cfg, "min_rotation_between_keyframes", params_.min_rotation_between_keyframes);
+    yamlLoadMemberReq<double>(cfg, "min_dist_xyz_between_keyframes", &params_.min_dist_xyz_between_keyframes);
+    yamlLoadMemberOptDeg<double>(cfg, "min_rotation_between_keyframes", &params_.min_rotation_between_keyframes);
 
-    yamlLoadMemberOpt<double>(cfg, "a1", params_.noise_model_planar.a1);
-    yamlLoadMemberOpt<double>(cfg, "a2", params_.noise_model_planar.a2);
-    yamlLoadMemberOpt<double>(cfg, "a3", params_.noise_model_planar.a3);
-    yamlLoadMemberOpt<double>(cfg, "a4", params_.noise_model_planar.a4);
-    yamlLoadMemberOpt<double>(cfg, "minStdXY", params_.noise_model_planar.minStdXY);
-    yamlLoadMemberOptDeg<double>(cfg, "minStdPHI", params_.noise_model_planar.minStdPHI);
+    yamlLoadMemberOpt<double>(cfg, "a1", &params_.noise_model_planar.a1);
+    yamlLoadMemberOpt<double>(cfg, "a2", &params_.noise_model_planar.a2);
+    yamlLoadMemberOpt<double>(cfg, "a3", &params_.noise_model_planar.a3);
+    yamlLoadMemberOpt<double>(cfg, "a4", &params_.noise_model_planar.a4);
+    yamlLoadMemberOpt<double>(cfg, "minStdXY", &params_.noise_model_planar.minStdXY);
+    yamlLoadMemberOptDeg<double>(cfg, "minStdPHI", &params_.noise_model_planar.minStdPHI);
 
     MRPT_TRY_END
 }
